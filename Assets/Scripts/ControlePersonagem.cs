@@ -121,7 +121,7 @@ public class ControlePersonagem : MonoBehaviour {
 			Vector2 hitCorda = direcao == DIREITA ? indicadorD.transform.position : indicadorE.transform.position;
 			vetor_movimento = (hitCorda - (Vector2)origemCorda.position) * velocidade_corda;
 			direcao_horizontal = direcao;
-			direcao_movimento = direcao_movimento = new Vector2 (sinal_direcao_horizontal, 0);
+			direcao_movimento = new Vector2 (sinal_direcao_horizontal, 0);
 		}
 	}
 
