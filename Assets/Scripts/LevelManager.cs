@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class LevelManager : MonoBehaviour {
 
-	public Transform jogador;
+	public GUIManager guiManager;
+	public ControlePersonagem jogador;
 	public List<GameObject> fases;
 
 	int faseAtual;
@@ -13,15 +14,35 @@ public class LevelManager : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 		faseAtual = 0;
-		CarregarFase ();
 	}
 
-	void CarregarFase(){
-		if (faseAtual < fases.Count) {
-			objetoFaseAtual = GameObject.Instantiate (fases [faseAtual]) as GameObject;
-			jogador.transform.position = GameObject.FindWithTag ("Spawn").transform.position;
+	public void CarregarFase(int i){
+		if (i < fases.Count) {
+			objetoFaseAtual = GameObject.Instantiate (fases [i]) as GameObject;
+			jogador.Renascer (GameObject.FindWithTag ("Spawn").transform.position);
+			faseAtual = i;
+		} else {
+			guiManager.SelecaoDeFase.SetActive (true);
 		}
 	}
+
+	public void TerminarFase(){
+		jogador.gameObject.SetActive (false);
+		DestruirFase ();
+		guiManager.FinalDaFase.SetActive (true);
+	}
+
+	public void ProximaFase(){
+		faseAtual++;
+		RepetirFase ();
+	}
+
+	public void RepetirFase(){
+		DestruirFase ();
+		CarregarFase (faseAtual);
+		guiManager.FinalDaFase.SetActive (false);
+	}
+
 
 	void DestruirFase(){
 		if (objetoFaseAtual != null) {
@@ -30,10 +51,5 @@ public class LevelManager : MonoBehaviour {
 		}
 	}
 
-	public void PassarDeFase(){
-		faseAtual++;
-		DestruirFase ();
-		CarregarFase ();
-	}
 
 }
