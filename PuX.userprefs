@@ -1,10 +1,12 @@
 ﻿<Properties StartupItem="Assembly-CSharp.csproj">
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Unity.Instance.Unity Editor" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\ControlePersonagem.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\SinMeshDeformer.cs">
     <Files>
-      <File FileName="Assets\Scripts\ControlePersonagem.cs" Line="192" Column="3" />
-      <File FileName="Assets\Scripts\SaidaFase.cs" Line="11" Column="4" />
-      <File FileName="Assets\Scripts\LevelManager.cs" Line="22" Column="73" />
+      <File FileName="Assets\Scripts\ControlePersonagem.cs" Line="191" Column="31" />
+      <File FileName="Assets\Scripts\SaidaFase.cs" Line="10" Column="61" />
+      <File FileName="Assets\Scripts\LevelManager.cs" Line="25" Column="46" />
+      <File FileName="Assets\Scripts\GUIManager.cs" Line="9" Column="2" />
+      <File FileName="Assets\Scripts\SinMeshDeformer.cs" Line="19" Column="60" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

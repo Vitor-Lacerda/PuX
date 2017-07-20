@@ -50,6 +50,7 @@
      <Compile Include="Assets\Scripts\GUIManager.cs" />
      <Compile Include="Assets\Scripts\LevelManager.cs" />
      <Compile Include="Assets\Scripts\SaidaFase.cs" />
+     <Compile Include="Assets\Scripts\SinMeshDeformer.cs" />
  <Reference Include="UnityEngine.UI">
  <HintPath>C:/Program Files/Unity561/Editor/Data/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
  </Reference>

@@ -12,7 +12,13 @@ public class ControlePersonagem : MonoBehaviour {
 	public Transform[] posicoesRaycast;
 	public Transform indicadorD;
 	public Transform indicadorE;
+
+	[Header("Componentes")]
 	public LineRenderer lineRenderer;
+	public Transform spriteTransform;
+	float escalaXSpriteInicial;
+	public Animator spriteAnim;
+	public ParticleSystem particulaColisao;
 
 	[Header("Atributos")]
 	public float alcanceRaycasts = 0.2f;
@@ -55,15 +61,25 @@ public class ControlePersonagem : MonoBehaviour {
 		direcao_horizontal = DIREITA;
 		vetor_movimento = Vector2.zero;
 
+		escalaXSpriteInicial = spriteTransform.localScale.x;
+
 	}
 
 	void Update(){
 
+		VirarSprite ();
+		bool noChao = NoChao ();
+		spriteAnim.SetBool ("Grounded", noChao);
+		spriteAnim.SetBool ("Puxando", puxando);
+		spriteAnim.SetFloat ("XSpeed", Mathf.Abs(vetor_movimento.x));
+
 		LancaCorda (DIREITA);
 		LancaCorda (ESQUERDA);
 
+		lineRenderer.SetPosition (0, origemCorda.position);
+
 		if (!puxando) {
-			MovimentoHorizontal (NoChao ());
+			MovimentoHorizontal (noChao);
 
 			if (Input.GetKeyDown (KeyCode.RightArrow)) {
 				Gancho (DIREITA);
@@ -73,7 +89,6 @@ public class ControlePersonagem : MonoBehaviour {
 			}
 		} else {
 			m_rigidBody.velocity = vetor_movimento;
-			lineRenderer.SetPosition (0, origemCorda.position);
 		}
 		if (Input.GetKeyUp (KeyCode.RightArrow)) {
 			SoltarGancho ();
@@ -120,6 +135,7 @@ public class ControlePersonagem : MonoBehaviour {
 			m_rigidBody.gravityScale = 0;
 			Vector2 hitCorda = indicador.position;
 
+
 			lineRenderer.SetPosition (0, origemCorda.position);
 			lineRenderer.SetPosition (1, hitCorda);
 			lineRenderer.enabled = true;
@@ -128,6 +144,8 @@ public class ControlePersonagem : MonoBehaviour {
 			vetor_movimento = (hitCorda - (Vector2)origemCorda.position) * velocidade_corda;
 			direcao_horizontal = direcao;
 			direcao_movimento = new Vector2 (sinal_direcao_horizontal, 0);
+
+
 
 
 		}
@@ -203,31 +221,13 @@ public class ControlePersonagem : MonoBehaviour {
 		Renascer(posicaoSpawn);
 	}
 
-	/*IEnumerator AnimaLinha(Vector2 pos, int direcao){
-
-		lineRenderer.enabled = true;
-		lineRenderer.SetPosition (0, origemCorda.position);
-		lineRenderer.SetPosition (1, origemCorda.position);
-
-		Vector2 linePos = lineRenderer.GetPosition (1);
-		Vector2 diferenca = pos - linePos;
-
-		Vector2 vetor_antigo = vetor_movimento;
-		vetor_movimento = Vector2.zero;
-
-		while (Vector2.Distance (linePos, pos) > 0.1f && lineRenderer.enabled) {
-			linePos += diferenca * 8 * Time.deltaTime;
-			lineRenderer.SetPosition (1, linePos);
-			yield return null;
-		}
-		if (lineRenderer.enabled) {
-			
-		}
+	void VirarSprite(){
+		Vector3 temp = spriteTransform.localScale;
+		temp.x = escalaXSpriteInicial * sinal_direcao_horizontal;
+		spriteTransform.localScale = temp;
+	}
 
 
-		yield return null;
-
-	}*/
 
 
 	void OnTriggerEnter2D(Collider2D col){
@@ -242,6 +242,10 @@ public class ControlePersonagem : MonoBehaviour {
 			if (!puxando) {
 				if (Mathf.Abs(Mathf.Abs(ponto.normal.y) - 1) > 0.01f) {
 					InverterMovimento (true);
+					if (!NoChao ()) {
+						particulaColisao.transform.position = ponto.point;
+						particulaColisao.Play ();
+					}
 					break;
 				} 
 			}

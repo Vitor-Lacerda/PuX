@@ -1,15 +1,14 @@
 fileFormatVersion: 2
-guid: b846824d74d1a3d48a5b435bca2df18e
-timeCreated: 1500559388
+guid: 00492c51380208e4280614085f5a74ba
+timeCreated: 1500574085
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
-    21300000: SheetPersonagem_0
-    21300002: SheetPersonagem_1
-    21300004: SheetPersonagem_2
-    21300006: SheetPersonagem_3
-    21300008: SheetPersonagem_4
-    21300010: SheetPersonagem_5
+    21300000: Plataforma
+    21300002: Cotovelo
+    21300004: diamante
+    21300006: SemEfeito
+    21300008: UmLado
   serializedVersion: 4
   mipmaps:
     mipMapMode: 0
@@ -42,7 +41,7 @@ TextureImporter:
   compressionQuality: 50
   spriteMode: 2
   spriteExtrude: 1
-  spriteMeshType: 1
+  spriteMeshType: 0
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
@@ -92,80 +91,67 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: SheetPersonagem_0
+      name: Plataforma
       rect:
         serializedVersion: 2
-        x: 14
-        y: 380
-        width: 61
-        height: 118
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: SheetPersonagem_1
-      rect:
-        serializedVersion: 2
-        x: 99
-        y: 380
-        width: 72
-        height: 113
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: SheetPersonagem_2
-      rect:
-        serializedVersion: 2
-        x: 204
-        y: 380
-        width: 83
-        height: 110
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: SheetPersonagem_3
-      rect:
-        serializedVersion: 2
-        x: 315
-        y: 380
-        width: 63
-        height: 124
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: SheetPersonagem_4
-      rect:
-        serializedVersion: 2
-        x: 397
-        y: 380
-        width: 67
-        height: 121
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: SheetPersonagem_5
-      rect:
-        serializedVersion: 2
-        x: 15
-        y: 250
+        x: 0
+        y: 192
         width: 64
-        height: 118
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 5, y: 0, z: 5, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Cotovelo
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 192
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: diamante
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 192
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: SemEfeito
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 128
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: UmLado
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 128
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0
